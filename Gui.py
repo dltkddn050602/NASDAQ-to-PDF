@@ -41,7 +41,7 @@ class BriefFinance(wx.Frame):
         ticker, name = ticker.split(" - ")
         target = finance.search_target(ticker)
         finance.make_PDF(target,ticker)
-        wx.MessageBox(f"PDF 생성 완료: {name}", "완료", wx.OK | wx.ICON_INFORMATION)
+        wx.MessageBox(f"요청하신 {name}의 정보가 /Exported에 저장됨", "완료", wx.OK | wx.ICON_INFORMATION)
 
 
 if __name__ == "__main__":
