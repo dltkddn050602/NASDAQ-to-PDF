@@ -1,4 +1,10 @@
 ### 2024 Chung-ang university open-source programing final - sangwoolee, dongyunye
+'''bash
+    pip install pandas
+    pip install yfinance
+    pip install fpdf
+    pip install wxpython
+## SequenceDiagram
 ```mermaid
 sequenceDiagram
     participant User
