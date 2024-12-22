@@ -1,6 +1,6 @@
 ### 2024 Chung-ang university open-source programing final - sangwoolee, dongyunye
 ## requirement
-
+Install the required package using pip:
 ```bash
     pip install pandas
     pip install yfinance
