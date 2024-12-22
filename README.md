@@ -4,7 +4,6 @@ sequenceDiagram
     participant User
     participant GUI.py
     participant finance.py
-
     User->>GUI.py: Search for stock "AAPL"
     GUI.py->>finance.py: Request stock data for "AAPL"
     finance.py-->>User: Return stock data PDF for "AAPL"
