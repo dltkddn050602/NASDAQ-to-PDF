@@ -2,12 +2,13 @@ import yfinance as yf
 from fpdf import FPDF
 import os
 
-def search_target(target) :
+
+def search_target(target) :   #yfinance로 주식 정보 찾기
     target = yf.Ticker(target)
     return target
 
 
-def make_PDF(target, name):
+def make_PDF(target, name):   #받은 주식 정보를 pdf로 만들기
     pdf = FPDF()
     pdf.add_page()
     directory = os.getcwd()

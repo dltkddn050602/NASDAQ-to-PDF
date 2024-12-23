@@ -1,6 +1,8 @@
 import wx
 import finance
 import pandas as pd
+
+
 class BriefFinance(wx.Frame):
     def __init__(self):
         super().__init__(None, title="주식 정보", size=(720, 640))
@@ -8,14 +10,15 @@ class BriefFinance(wx.Frame):
         large_font = wx.Font(36, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
         label = wx.StaticText(panel,label="나스닥 주식 보고서",pos=(20,10), size=(120,-1))
         label.SetFont(large_font)
-        # 텍스트 입력 상자
+        # 텍스트 입력
         self.input_name = wx.TextCtrl(panel, pos=(400, 20), size=(200, 20), style=wx.TE_PROCESS_ENTER)
         self.input_name.Bind(wx.EVT_TEXT_ENTER,self.on_search)
         
         # 검색 버튼
         search_button = wx.Button(panel, label="검색", pos=(610, 20))
         search_button.Bind(wx.EVT_BUTTON, self.on_search)
-
+        
+        # 주식 리스트
         self.ticker_list = pd.read_csv("data/NYSE_Symbol.csv", encoding="ISO-8859-1")
         self.company_list = pd.read_csv("data/NYSE_company.csv", encoding="ISO-8859-1")
         self.companies = [f"{ticker} - {name}" for ticker, name in zip(self.ticker_list["Symbol"], self.company_list["Name"])]
@@ -44,10 +47,10 @@ class BriefFinance(wx.Frame):
         wx.MessageBox(f"요청하신 {name}의 정보가 /Exported에 저장됨", "완료", wx.OK | wx.ICON_INFORMATION)
 
 
-if __name__ == "__main__":
-    app = wx.App()
-    app.SetAppName("나스닥 주식 보고서")
-    frame = BriefFinance()
-    frame.SetBackgroundColour(wx.Colour(50, 50, 50))
-    frame.Show()
-    app.MainLoop()
+
+app = wx.App()
+app.SetAppName("나스닥 주식 보고서")
+frame = BriefFinance()
+frame.SetBackgroundColour(wx.Colour(50, 50, 50))
+frame.Show()
+app.MainLoop()
