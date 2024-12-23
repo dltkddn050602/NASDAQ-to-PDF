@@ -1,5 +1,5 @@
 ### 2024 Chung-ang university open-source programing final - sangwoolee, dongyunye
-## requirement
+## Requirement
 Install the required package using pip:
 ```bash
     pip install pandas
